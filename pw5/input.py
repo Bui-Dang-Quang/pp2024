@@ -107,5 +107,9 @@ def compress_files():
 
     print(f"All files have been compressed into {archive_name}")
 
+def decompress_files(zip_file_name, extract_dir):
+    zip_decompress = zipfile.ZipFile(zip_file_name, 'r')
+    zip_decompress.extractall(extract_dir)
 
+    print(f"All files have been decompressed into {extract_dir}")
 

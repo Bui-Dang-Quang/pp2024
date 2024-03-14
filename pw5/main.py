@@ -1,4 +1,4 @@
-from input import studentList, courseList, selectedCourse,compress_files
+from input import studentList, courseList, selectedCourse,compress_files,decompress_files
 from output import printStudentInformation, printCourseInformation, printMarkInformation, GPA_CAL
 from domain import Student, Course
 
@@ -28,12 +28,13 @@ def main():
             |         5. List all the Student's Information                             |
             |         6. List all Student's mark                                        |
             |         7. List GPA(descending order)                                     |
+            |         8. Compress Text file as "students.zip"                           |
+            |         9. Decompress Text file                                           |   
             =============================================================================
         """)
         try:
             choice = int(input("Choose the option: "))
             if choice == 0:
-                compress_files()
                 print("Exiting program... ")
                 break
             elif choice == 1:
@@ -50,6 +51,10 @@ def main():
                 printMarkInformation(info.marks)
             elif choice == 7:
                 GPA_CAL(info)
+            elif choice == 8:
+                compress_files()
+            elif choice == 9:
+                decompress_files("students.zip", "extracted_files")
             else:
                 print("Invalid choice. Please choose a number between 0 and 7.")
         except ValueError:
